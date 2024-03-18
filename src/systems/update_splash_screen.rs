@@ -29,7 +29,7 @@ pub fn update_splash_screen<T: States + Clone>(
                 commands.spawn((
                     SpriteBundle {
                         sprite: Sprite {
-                            custom_size: Some(Vec2::ONE),
+                            custom_size: splash_screen_configuration.custom_size,
                             ..Default::default()
                         },
                         texture: splash_screen_handles.images[0].clone(),

@@ -9,6 +9,8 @@ pub struct SplashScreenConfiguration<T: States + Clone> {
     pub next_state: T,
     /// This is a path relative to the `assets` folder which contains the splash screens to be displayed
     pub path: String,
+    /// This is a way to override the size of each image.
+    pub custom_size: Option<Vec2>,
     /// This is how long in seconds each splash screen should be displayed
     pub splash_timer: f32,
     /// This is the clear color for the splash camera
@@ -24,6 +26,7 @@ impl<T: States + Clone> SplashScreenConfiguration<T> {
             run_state,
             next_state,
             path: String::from("splash_screens"),
+            custom_size: Some(Vec2::ONE),
             splash_timer: 3.0,
             clear_color: Color::BLACK,
             camera_scaling_mode: ScalingMode::Fixed { width: 1.0, height: 1.0 },
@@ -33,6 +36,12 @@ impl<T: States + Clone> SplashScreenConfiguration<T> {
     /// Change the path relative to the `assets` folder which contains the splash screens to be displayed
     pub fn with_path(mut self, asset_folder: impl ToString) -> Self {
         self.path = asset_folder.to_string();
+        self
+    }
+
+    /// Change the override for each image size
+    pub fn with_custom_size(mut self, custom_size: Option<Vec2>) -> Self {
+        self.custom_size = custom_size;
         self
     }
 
