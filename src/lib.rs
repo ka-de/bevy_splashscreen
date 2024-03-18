@@ -8,7 +8,6 @@ pub use self::splash_screen_plugin::*;
 
 pub mod prelude {
     pub use crate::splash_screen_plugin::SplashScreenPlugin;
-    
-    pub use crate::resources::SplashScreenConfiguration;
 
+    pub use crate::resources::SplashScreenConfiguration;
 }

@@ -1,7 +1,11 @@
 use bevy::prelude::*;
-use bevy_asset_loader::{dynamic_asset::DynamicAssets, standard_dynamic_asset::StandardDynamicAsset};
+use bevy_asset_loader::{
+    dynamic_asset::DynamicAssets, standard_dynamic_asset::StandardDynamicAsset,
+};
 
-use crate::{components::SplashScreenTag, resources::SplashScreenConfiguration, state::SplashScreenState};
+use crate::{
+    components::SplashScreenTag, resources::SplashScreenConfiguration, state::SplashScreenState,
+};
 
 pub fn on_enter<T: States>(
     mut commands: Commands,
@@ -26,7 +30,12 @@ pub fn on_enter<T: States>(
         SplashScreenTag,
     ));
 
-    dynamic_assets.register_asset("splash_screen_path", Box::new(StandardDynamicAsset::Folder { path: splash_screen_configuration.path.clone() }));
+    dynamic_assets.register_asset(
+        "splash_screen_path",
+        Box::new(StandardDynamicAsset::Folder {
+            path: splash_screen_configuration.path.clone(),
+        }),
+    );
 
     splash_screen_state.set(SplashScreenState::Initialize);
 }

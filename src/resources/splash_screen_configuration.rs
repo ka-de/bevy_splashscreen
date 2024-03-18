@@ -16,7 +16,7 @@ pub struct SplashScreenConfiguration<T: States + Clone> {
     /// This is the clear color for the splash camera
     pub clear_color: Color,
     /// This is the scaling mode to be set for the splash camera
-    pub camera_scaling_mode: ScalingMode
+    pub camera_scaling_mode: ScalingMode,
 }
 
 impl<T: States + Clone> SplashScreenConfiguration<T> {
@@ -29,7 +29,10 @@ impl<T: States + Clone> SplashScreenConfiguration<T> {
             custom_size: Some(Vec2::ONE),
             splash_timer: 3.0,
             clear_color: Color::BLACK,
-            camera_scaling_mode: ScalingMode::Fixed { width: 1.0, height: 1.0 },
+            camera_scaling_mode: ScalingMode::Fixed {
+                width: 1.0,
+                height: 1.0,
+            },
         }
     }
 

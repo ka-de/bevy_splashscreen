@@ -1,6 +1,9 @@
 use bevy::prelude::*;
 
-use crate::{components::{SplashScreenImage, SplashScreenTag}, resources::{SplashScreenConfiguration, SplashScreenImages}};
+use crate::{
+    components::{SplashScreenImage, SplashScreenTag},
+    resources::{SplashScreenConfiguration, SplashScreenImages},
+};
 
 pub fn update_splash_screen<T: States + Clone>(
     mut commands: Commands,
@@ -17,13 +20,17 @@ pub fn update_splash_screen<T: States + Clone>(
                 splash_screen_image.index += 1;
 
                 if splash_screen_image.index < splash_screen_handles.images.len() {
-                    *image_handle = splash_screen_handles.images[splash_screen_image.index].clone_weak();
-                    splash_screen_image.timer = Timer::from_seconds(splash_screen_configuration.splash_timer, TimerMode::Once);
+                    *image_handle =
+                        splash_screen_handles.images[splash_screen_image.index].clone_weak();
+                    splash_screen_image.timer = Timer::from_seconds(
+                        splash_screen_configuration.splash_timer,
+                        TimerMode::Once,
+                    );
                 } else {
                     app_state.set(splash_screen_configuration.next_state.clone());
                 }
             }
-        },
+        }
         Err(_) => {
             if !splash_screen_handles.images.is_empty() {
                 commands.spawn((
@@ -36,7 +43,10 @@ pub fn update_splash_screen<T: States + Clone>(
                         ..Default::default()
                     },
                     SplashScreenImage {
-                        timer: Timer::from_seconds(splash_screen_configuration.splash_timer, TimerMode::Once),
+                        timer: Timer::from_seconds(
+                            splash_screen_configuration.splash_timer,
+                            TimerMode::Once,
+                        ),
                         index: 0,
                     },
                     SplashScreenTag,
@@ -44,6 +54,6 @@ pub fn update_splash_screen<T: States + Clone>(
             } else {
                 app_state.set(splash_screen_configuration.next_state.clone());
             }
-        },
+        }
     }
 }
