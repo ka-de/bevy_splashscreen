@@ -1,0 +1,29 @@
+[package]
+name = "bevy_splash_screen"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies.bevy]
+# A refreshingly simple data-driven game engine and app framework
+version = "0.13"
+default-features = false
+features = [
+    "bevy_asset",
+    "bevy_sprite",
+]
+
+[dependencies.bevy_asset_loader]
+# Bevy plugin for asset loading
+version = "0.20"
+default-features = false
+features = [
+    "2d",
+    "standard_dynamic_assets",
+    "progress_tracking",
+]
+
+[dependencies.iyes_progress]
+# Bevy plugin to help implement loading states
+version = "0.11"
+default-features = false
+features = []
