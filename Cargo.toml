@@ -4,6 +4,10 @@ version = "0.1.0"
 edition = "2021"
 description = "A simple splash screen plugin for Bevy"
 
+[features]
+default = []
+progress_tracking = ["bevy_asset_loader/progress_tracking", "dep:iyes_progress"]
+
 [dependencies.bevy]
 # A refreshingly simple data-driven game engine and app framework
 version = "0.13"
@@ -21,3 +25,8 @@ features = [
     "2d",
     "standard_dynamic_assets",
 ]
+
+[dependencies.iyes_progress]
+# Bevy plugin to help implement loading states
+version = "0.11"
+optional = true
