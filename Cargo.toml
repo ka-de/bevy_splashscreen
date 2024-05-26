@@ -1,32 +1,26 @@
 [package]
-name = "bevy_splash_screen"
+name = "bevy_splashscreen"
 version = "0.1.0"
 edition = "2021"
 description = "A simple splash screen plugin for Bevy"
 
 [features]
-default = []
-progress_tracking = ["bevy_asset_loader/progress_tracking", "dep:iyes_progress"]
+default = ["progress_tracking"]
+progress_tracking = ["bevy_asset_loader/progress_tracking", "dep:bevy_progress"]
 
 [dependencies.bevy]
 # A refreshingly simple data-driven game engine and app framework
-version = "0.13"
+version = "0.13.2"
 default-features = false
-features = [
-    "bevy_asset",
-    "bevy_sprite",
-]
+features = ["bevy_asset", "bevy_sprite"]
 
 [dependencies.bevy_asset_loader]
 # Bevy plugin for asset loading
-version = "0.20"
+git = "https://github.com/ka-de/bevy_asset_loader"
 default-features = false
-features = [
-    "2d",
-    "standard_dynamic_assets",
-]
+features = ["2d", "standard_dynamic_assets"]
 
-[dependencies.iyes_progress]
+[dependencies.bevy_progress]
 # Bevy plugin to help implement loading states
-version = "0.11"
+git = "https://github.com/ka-de/bevy_progress"
 optional = true
