@@ -9,10 +9,12 @@ default = ["progress_tracking"]
 progress_tracking = ["bevy_asset_loader/progress_tracking", "dep:bevy_progress"]
 
 [dependencies.bevy]
-# A refreshingly simple data-driven game engine and app framework
 version = "0.13.2"
 default-features = false
 features = ["bevy_asset", "bevy_sprite"]
+
+[dependencies.bevy_tweening]
+git = "https://github.com/ka-de/bevy_tweening"
 
 [dependencies.bevy_asset_loader]
 # Bevy plugin for asset loading
@@ -21,6 +23,5 @@ default-features = false
 features = ["2d", "standard_dynamic_assets"]
 
 [dependencies.bevy_progress]
-# Bevy plugin to help implement loading states
 git = "https://github.com/ka-de/bevy_progress"
 optional = true
